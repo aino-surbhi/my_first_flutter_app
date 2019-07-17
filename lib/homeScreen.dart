@@ -19,7 +19,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
         //  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
           hintText: "City Name",
-          icon: new Icon(Icons.gps_fixed),
+
+          prefixIcon: Icon(Icons.gps_fixed),
           border:
           OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
           ),
@@ -76,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
         ),
+
       ),
     );
   }
