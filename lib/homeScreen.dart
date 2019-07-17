@@ -6,48 +6,75 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   @override
-//  Widget build(BuildContext context) {
-//    return new Scaffold(
-//      appBar: new AppBar(
-//        title: new Text('HomeScreen'),
-//      ),
-//      body: new Center(
-//        child: new Text('Welcome to Home.!'),
-//      ),
-//
-//    );
-//  }
-
-
-
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('HomeScreen'),
+
+    final field = TextField(
+
+    //  obscureText: false,
+      style: style,
+      decoration: InputDecoration(
+
+        //  contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: "City Name",
+          icon: new Icon(Icons.gps_fixed),
+          border:
+          OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+          ),
+
+    );
+
+
+
+
+
+
+    final searchButon = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(30.0),
+      color: Color(0xff01A0C7),
+      child: MaterialButton(
+      //  minWidth: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        onPressed: () {},
+        child: Text("Search",
+            textAlign: TextAlign.center,
+            style: style.copyWith(
+                color: Colors.white, fontWeight: FontWeight.bold)),
+      ),
+    );
+
+
+    return Scaffold(
+            appBar: AppBar(
+        centerTitle: true,
+        title: Text('Home Page'),
       ),
       body: Center(
         child: Container(
-          height: 50,
-          width: 200,
-          child: Stack(
-            children: <Widget>[
+          color: Colors.white,
 
-              Center(
-                child: TextField(
-                    decoration: new InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 2.0),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.black, width: 2.0),
-                      ),
-                      hintText: 'city Name',
-                    ),
-                )
-              )
-            ],
-          ),
+            child: Column(
+
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+
+
+                SizedBox(height: 15.0),
+
+                field,
+                SizedBox(height: 15.0),
+
+                searchButon,
+                SizedBox(
+                  height: 15.0,
+                ),
+              ],
+            ),
+
         ),
       ),
     );

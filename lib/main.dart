@@ -159,20 +159,6 @@ class _SplashScreenState extends State<SplashScreen> {
     startTime();
   }
 
-//  @override
-//  Widget build(BuildContext context) {
-//    SizedBox sziebox =  new SizedBox(
-//
-//      height: 100.0,
-//      child: Image.asset('images/splashscreen.png',
-//        fit: BoxFit.cover,
-//      ),
-//
-//    );
-//    return sziebox;
-//  }
-
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
