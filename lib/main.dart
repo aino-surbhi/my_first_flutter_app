@@ -122,8 +122,6 @@
 //    );
 //  }
 //}
-
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -133,7 +131,7 @@ void main() {
   runApp(new MaterialApp(
     home: new SplashScreen(),
     routes: <String, WidgetBuilder>{
-      '/HomeScreen': (BuildContext context) => new HomeScreen()
+      '/HomeScreen': (BuildContext context) => new Home()
     },
   ));
 }
@@ -163,10 +161,6 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-//      appBar: AppBar(
-//        centerTitle: true,
-//        title: Text('Text Over Image Image Example'),
-//      ),
       body: Center(
         child: Container(
           height: 1000,
