@@ -50,7 +50,6 @@ class _HomeState extends State<Home> {
   }
 
 
-
   void navigationPage() {
     Navigator.push(context,new MaterialPageRoute(builder: (context) => new ExchangeData(post: fetchPost())),
     );

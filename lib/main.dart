@@ -127,7 +127,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter_app/homeScreen.dart';
 
-void main() {
+import 'all_translations.dart';
+
+
+void main() async {
+  await allTranslations.init();
   runApp(new MaterialApp(
     home: new SplashScreen(),
     routes: <String, WidgetBuilder>{
