@@ -123,12 +123,11 @@
 //  }
 //}
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter_app/homeScreen.dart';
 
 import 'all_translations.dart';
-
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 void main() async {
   await allTranslations.init();
@@ -146,6 +145,9 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  String textValue;
+
+  FirebaseMessaging firebaseMessaging=new FirebaseMessaging();
   startTime() async {
     var _duration = new Duration(seconds: 5);
     return new Timer(_duration, navigationPage);
@@ -159,7 +161,50 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     startTime();
+    firebaseMessaging.configure(
+
+      onLaunch: (Map<String, dynamic> msg) {
+        print("on launched called");
+      },
+      onResume: (Map<String, dynamic> msg) {
+        print("on resumed called");
+      },
+      onMessage: (Map<String, dynamic> msg) {
+        print("onMessage called");
+      },
+    );
+
+    firebaseMessaging.requestNotificationPermissions(
+        const IosNotificationSettings(
+
+            sound: true,
+            alert: true,
+            badge: true
+
+
+        )
+    );
+
+    firebaseMessaging.onIosSettingsRegistered.listen((
+        IosNotificationSettings setting) {
+      print("Ios setting registered");
+    });
+
+    firebaseMessaging.getToken().then((token) {
+      update(token);
+    });
   }
+    update(String token){
+    print(token);
+    textValue =token;
+    setState(() {
+
+    });
+
+  }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -184,8 +229,16 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 28.0,
-                        color: Colors.white)),
+                        color: Colors.white)
+
+                ),
+
               ),
+
+//              Center(
+//                child: Text(textValue),
+//
+//                ),
             ],
           ),
         ),
